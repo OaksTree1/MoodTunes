@@ -1,2 +1,4 @@
-const clientID = 'ENTER CLIENT ID HERE';
-const clientSecret = 'ENTER CLIENT SECRET HERE';
+export const spotify_auth = {
+    clientID : 'ENTER CLIENT ID HERE',
+    clientSecret : 'ENTER CLIENT SECRET HERE',
+}
