@@ -1,8 +1,20 @@
-<a class="spotifyButtonContainer" role="button" >
-    <button mat-button class="spotifyButton" (click)="goToSpotify()">
-            <img id="spotifyLogo" src='./../../assets/images/white_logo.png' alt="spotifyLogo">
-            <div>
-            Login with Spotify
-            </div>
-    </button>
-</a>
+<div *ngIf="!accept_code; else loggedIn">
+    <a class="spotifyButtonContainer" role="button" >
+        <button mat-button class="spotifyButton" (click)="goToSpotify()">
+                <img id="spotifyLogo" src='./../../assets/images/white_logo.png' alt="spotifyLogo">
+                <div>
+                Login with Spotify
+                </div>
+        </button>
+    </a>
+</div>
+
+<ng-template #loggedIn>
+    <a class="spotifyButtonContainer" role="button" >
+        <button mat-button class="surveyButton" (click)="goToSurvey()">
+                <div>
+                    Take the survey
+                </div>
+        </button>
+    </a>
+</ng-template>

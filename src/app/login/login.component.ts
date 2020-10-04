@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { pkce } from './../spotify/pkce';
 import { spotify_auth } from './../spotify/spotify_auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +13,16 @@ export class LoginComponent implements OnInit {
 
   private SpotifyURL: string;
 
+  public accept_code: string;
+
   constructor(
     private CodeGenerator: pkce,
-  ) { }
+    public router: Router,
+    private activatedRoute: ActivatedRoute) {
+      this.activatedRoute.queryParams.subscribe(params => {
+            this.accept_code = params['code'];
+        });
+    }
 
   ngOnInit(): void 
   {
@@ -35,8 +44,6 @@ export class LoginComponent implements OnInit {
     }
 
     this.SpotifyURL += `&code_challenge=${codeChallenge}&code_challenge_method=S256`;
-
-    console.log(this.SpotifyURL);
   }
 
   goToSpotify()
@@ -44,5 +51,9 @@ export class LoginComponent implements OnInit {
     window.open(this.SpotifyURL, "_self");
   }
 
+  goToSurvey()
+  {
+      this.router.navigate(['/moodsurvey']);
+  }
 
 }

@@ -20,12 +20,9 @@ export class LandingPageComponent implements OnInit {
     //Get random color scheme
     var randColors = new RandomColorScheme();
 
-    console.log(randColors);
-
     var elements = document.getElementsByClassName("waveWrapperInner");
     Array.prototype.forEach.call(elements , function(element)
     {
-        console.log(element);
         element.setAttribute("style", `background-image : linear-gradient(to top, #${randColors.color1} 20%,#${randColors.color2} 80%)`)
     });
   }
@@ -39,8 +36,8 @@ class RandomColorScheme
   constructor()
   {
     var colorIndex = Math.round(Math.random() * (colorsList.length - 1));
-    this.color1 = colorsList[colorIndex][0];
-    this.color2 = colorsList[colorIndex][1];
+    this.color1 = colorsList[colorIndex][1];
+    this.color2 = colorsList[colorIndex][0];
   }
 
 }

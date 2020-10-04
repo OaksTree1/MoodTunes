@@ -1,9 +1,4 @@
-.spotifyButtonContainer
-{
-    
-}
-
-.spotifyButton
+.spotifyButton, .surveyButton
 {
     background: #1ed760;
     margin:auto;
@@ -15,6 +10,11 @@
     color:white;
     font-size:25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.surveyButton
+{
+    background: #77acf1;
 }
 
 #spotifyLogo
