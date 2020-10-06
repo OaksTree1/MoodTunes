@@ -71,6 +71,7 @@
     background-repeat: repeat no-repeat;
     background-position: 0 bottom;
     transform-origin: center bottom;
+    opacity: 0.5;
 }
 .waveTop {
     background-size: 50% 100px;

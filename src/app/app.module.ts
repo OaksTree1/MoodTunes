@@ -7,9 +7,16 @@ import { LoginComponent } from './login/login.component';
 import { pkce } from './spotify/pkce';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MoodsurveyComponent } from './moodsurvey/moodsurvey.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserPortalPageComponent } from './user-portal-page/user-portal-page.component';
+import { GetCodeComponent } from './get-code/get-code.component';
+import { RuntimeAuthCodesService } from './spotify/runtime-auth-codes.service';
 
 const routes: Routes = [
+  { path: '', component: LandingPageComponent },
   { path: 'moodsurvey', component: MoodsurveyComponent },
+  { path: 'myAccount', component: UserPortalPageComponent },
+  { path: 'getCode', component: GetCodeComponent },
 ];
 
 @NgModule({
@@ -18,13 +25,16 @@ const routes: Routes = [
     LoginComponent,
     LandingPageComponent,
     MoodsurveyComponent,
+    UserPortalPageComponent,
+    GetCodeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
-  providers: [pkce],
+  providers: [pkce, RuntimeAuthCodesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

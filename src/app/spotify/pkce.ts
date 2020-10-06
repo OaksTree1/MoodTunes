@@ -1,12 +1,21 @@
+import { RuntimeAuthCodesService } from './runtime-auth-codes.service';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class pkce
 {
     verifier: any;
     challenge: any;
 
-    constructor()
+    constructor(
+        private runtimeCodes: RuntimeAuthCodesService
+    )
     {
-        this.verifier = this.generateRandomString();
-        this.challenge = this.challenge_from_verifier(this.verifier);
+        runtimeCodes.setCodeVerifier(this.generateRandomString());
+        console.log(runtimeCodes);
+        this.challenge = this.challenge_from_verifier(runtimeCodes.getCodeVerifier());
     }
 
     //Create the Verifier
