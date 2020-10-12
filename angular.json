@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MoodTunes"
+    }
+  },
+  "defaultProject": "MoodTunes",
+  "cli": {
+    "analytics": false
+  }
 }

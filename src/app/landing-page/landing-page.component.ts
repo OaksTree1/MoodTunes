@@ -39,5 +39,5 @@ class RandomColorScheme
     this.color1 = colorsList[colorIndex][1];
     this.color2 = colorsList[colorIndex][0];
   }
-
 }
+
