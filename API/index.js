@@ -17,19 +17,17 @@ const mongoose = require('mongoose');
 // })
 // });
 
-const server = '127.0.0.1:27017'
-const db = 'MoodTunes'
+const server = '127.0.0.1:27017';
+const db = 'MoodTunes';
 
 class initDatabase {
     constructor() {
         this.connect()
     }
-connect() { mongoose.connect('mongodb://${server}/${db}').then(() => {console.log("db success")})
+connect() {mongoose.connect('mongodb://${server}/${db}').then(() => {console.log("db success")})
 .catch(err => {console.error("error")})
 }
-}
-
-module.exports = new initDatabase();
+};
 
 const app = express();
 var get = app.get('/', (req, res) => {res.send("response sent");})
@@ -38,6 +36,5 @@ var get = app.get('/', (req, res) => {res.send("response sent");})
 app.listen(4010, () => {console.log('server listening');})
 
 
-
-
+module.exports = new initDatabase();
 
