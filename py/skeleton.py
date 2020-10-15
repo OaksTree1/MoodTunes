@@ -59,6 +59,7 @@ indV = np.array(OHE.fit_transform(indV))
 
 #fixing dummy variable trap for custom backwards elimination
 X = indV[:, 1:]
+print(X)
 
 #will be 3 additional columns added as part of encoding as each categorical variable is given a column
 
