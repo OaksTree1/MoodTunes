@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserPortalPageComponent } from './user-portal-page/user-portal-page.component';
 import { GetCodeComponent } from './get-code/get-code.component';
 import { RuntimeAuthCodesService } from './spotify/runtime-auth-codes.service';
+import { auth_token } from './spotify/auth_token';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -34,7 +35,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
   ],
-  providers: [pkce, RuntimeAuthCodesService],
+  providers: [pkce, RuntimeAuthCodesService, auth_token],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

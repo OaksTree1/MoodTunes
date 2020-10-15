@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Bavro';
+    src: url(/assets/font/Bavro-Regular.otf) format("opentype");
+    font-weight:300;
+  }

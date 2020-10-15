@@ -14,6 +14,7 @@ export class RuntimeAuthCodesService {
   setCodeVerifier(code: string)
   {
     this.codeVerifier = code;
+    document.cookie = `verifier=${code}`;
   } 
 
   getCodeVerifier()
