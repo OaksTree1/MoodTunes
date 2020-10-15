@@ -1,6 +1,7 @@
 import numpy as np
 import math
 import matplotlib
+import statsmodels.api as sm
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
@@ -56,13 +57,14 @@ OHE = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [3])], remain
 
 indV = np.array(OHE.fit_transform(indV))
 
+#fixing dummy variable trap for custom backwards elimination
 X = indV[:, 1:]
 
 #will be 3 additional columns added as part of encoding as each categorical variable is given a column
 
 indv_Train, indv_Test, dev_Train, dev_Test = train_test_split(indV, deV, test_size=0.2, random_state=0)
 
-# dont have to worry about dummy variable trap or statisticalL significance measures (take care of by class)
+# dont have to worry about dummy variable trap or statistical significance measures (take care of by class)
 lr = LinearRegression()
 lr.fit(indv_Train, dev_Train)
 dev_Predict = lr.predict(indv_Test)
