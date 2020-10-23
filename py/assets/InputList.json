@@ -1,4 +1,4 @@
-{"name": ["John", "Patrice"],
-  "mood": ["angry", "sad"],
-  "level": ["2", "3"],
-    "genre": ["jazz", "lo-fi"]}
+{"name": ["John", "Patrice", "Henok", "Henok", "Henok", "Andy", "Andy", "Andy", "Tim", "Tim", "Tim", "Paul", "Paul", "Paul"],
+  "mood": ["angry", "sad", "joy", "bored", "relaxed", "sad", "happy", "chill", "bored", "happy", "angry", "confused", "happy", "encouraged"],
+  "level": ["2", "3", "3", "4", "2", "5", "4", "3", "4", "3", "2", "2", "4", "2"],
+    "genre": ["jazz", "lo-fi", "metal", "metal", "alternative", "alternative", "pop", "electronic", "jrock", "alternative", "edm", "grunge", "classic rock", "alternative"]}

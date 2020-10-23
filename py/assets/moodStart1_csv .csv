@@ -1,3 +1,15 @@
 genre,level,name,mood
 jazz,2,John,angry
 lo-fi,3,Patrice,sad
+metal,3,Henok,joy
+metal,4,Henok,bored
+alternative,2,Henok,relaxed
+alternative,5,Andy,sad
+pop,4,Andy,happy
+electronic,3,Andy,chill
+jrock,4,Tim,bored
+alternative,3,Tim,happy
+edm,2,Tim,angry
+grunge,2,Paul,confused
+classic rock,4,Paul,happy
+alternative,2,Paul,encouraged
