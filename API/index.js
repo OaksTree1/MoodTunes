@@ -1,40 +1,63 @@
-const express = require('express');
-const { getRelativePath } = require('tslint/lib/configuration');
-const mongoose = require('mongoose');
-// const cors = require('cors');
-// const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
-// const oktaAuth = require('./auth');
-// const hangman = require('./hangman');
+'use strict';
+const { MongoClient} = require("mongodb");
+const express = require("express");
+const fs = require('fs');
+const { find } = require("tslint/lib/utils");
 
-// const port = process.env.port || 8080;
+const url = "mongodb+srv://<Username>:<Password>@moodtunes.1up6b.mongodb.net/<DBname>?retryWrites=true&w=majority"
+const client = new MongoClient(url, {useNewUrlParser: true});
+var inputData;
 
-// const app = express().use(cors()).use(bodyParser.json()).use(bearerToken())
-// .use(oktaAuth).use(hangman());
 
-// mongoose.connect('mongodb://localhost:27017/hangman').then(() => {console.log('db connected');
-// app.listen(port, () => {console.log('express server on ${port}')
-// })
-// });
-
-const server = '127.0.0.1:27017';
-const db = 'MoodTunes';
-
-class initDatabase {
-    constructor() {
-        this.connect()
-    }
-connect() {mongoose.connect('mongodb://${server}/${db}').then(() => {console.log("db success")})
-.catch(err => {console.error("error")})
+async function run(filepath) {
+    try{ 
+        let daData = fs.readFileSync(filepath);
+        inputData = JSON.parse(daData);
+        console.dir(inputData);
+        
+    interactUserData("find", inputData);
+    
 }
-};
+    catch(err){
+        console.log(err.stack);
+    }
+    finally{
+        await client.close();
+    }
+}
 
-const app = express();
-var get = app.get('/', (req, res) => {res.send("response sent");})
+async function interactUserData(action, document) {
+    await client.connect().then(() => {console.log("connnected to Mongo DB cluster")})
+    const db = client.db("MoodTunes");
+    const col = db.collection("UserInput");
+    if(action == "add")
+    {
+        await col.insertOne(document);
+    }
+    if(action == "find")
+    {
+     const outputQuery = await col.findOne();
+     console.log(outputQuery);
+
+    }
+}
+
+function aCall() {
+    const app = express();
+    try{
+        var get = app.get('/', (req, res) => {res.send(inputData["name"]);})
+        app.listen(4010, () => {console.log('server doing the listen');})
+    }
+    catch(err)
+    {
+        console.log(err.stack);
+    }
+}
+
+run("assets/InputList.json").catch(console.dir);
+aCall();
 
 
-app.listen(4010, () => {console.log('server listening');})
 
 
-module.exports = new initDatabase();
 
