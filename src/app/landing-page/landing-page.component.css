@@ -87,11 +87,11 @@
     background-size: 50% 120px;
 }
 .waveAnimation .waveMiddle {
-    animation: move_wave 10s linear infinite;
+    animation: move_wave 15s linear infinite;
 }
 .waveBottom {
     background-size: 50% 100px;
 }
 .waveAnimation .waveBottom {
-    animation: move_wave 15s linear infinite;
+    animation: move_wave 30s linear infinite;
 }
