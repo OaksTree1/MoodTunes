@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { pkce } from './../spotify/pkce';
-import { spotify_auth } from './../spotify/spotify_auth';
+import { pkce } from '../spotify/pkce';
+import { spotify_auth } from '../spotify/spotify_auth';
 import { Router } from '@angular/router';
 
 @Component({

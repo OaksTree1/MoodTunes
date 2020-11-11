@@ -14,7 +14,6 @@ export class pkce
     )
     {
         runtimeCodes.setCodeVerifier(this.generateRandomString());
-        console.log(runtimeCodes);
         this.challenge = this.challenge_from_verifier(runtimeCodes.getCodeVerifier());
     }
 

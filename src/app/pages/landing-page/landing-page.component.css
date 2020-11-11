@@ -1,29 +1,47 @@
+
 .buttonContainer
 {
     z-index: 10;
-    margin-left:39%;
-    width : 100%;
-
+    text-align: center;
     position: absolute;
     top: 80%;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-.Title
+.Title_Area
 {
     color:white;
-    margin: auto;
     text-align: center;
-    width: 50%;
-    font-size: 118px;
+    font-size: 8vw;
     margin-top:9%;
     font-family: 'Bavro', 'arial', 'sans-serif';
 }
 
 #TitleSubtext
 {
-    font-size: 24px;
+    font-size: 1.8vw;
     margin-top:15px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .Title_Area
+    {
+        color:white;
+        text-align: center;
+        font-size: 15vw;
+        margin-top: 14%;
+        font-family: 'Bavro', 'arial', 'sans-serif';
+    }
+    
+    #TitleSubtext
+    {
+        font-size: 3.9vw;
+        margin-top: 15px;
+    }
+  }
 
 @keyframes move_wave {
     0% {

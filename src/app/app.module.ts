@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { pkce } from './spotify/pkce';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { MoodsurveyComponent } from './moodsurvey/moodsurvey.component';
+import { LoginComponent } from './authentication-pieces/login/login.component';
+import { pkce } from './authentication-pieces/spotify/pkce';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { MoodsurveyComponent } from './pages/moodsurvey/moodsurvey.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserPortalPageComponent } from './user-portal-page/user-portal-page.component';
-import { GetCodeComponent } from './get-code/get-code.component';
-import { RuntimeAuthCodesService } from './spotify/runtime-auth-codes.service';
-import { auth_token } from './spotify/auth_token';
+import { UserPortalPageComponent } from './pages/user-portal-page/user-portal-page.component';
+import { GetCodeComponent } from './authentication-pieces/get-code/get-code.component';
+import { RuntimeAuthCodesService } from './authentication-pieces/spotify/runtime-auth-codes.service';
+import { auth_token } from './authentication-pieces/spotify/auth_token';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
