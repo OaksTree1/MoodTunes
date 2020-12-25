@@ -7,7 +7,7 @@ var headers_object = {'Content-Type':'application/x-www-form-urlencoded'};
 
   const httpOptions = {
     headers: headers_object,
-    responseType: 'text' as const,
+    responseType: 'json' as const,
   };
 
   @Injectable({
@@ -34,11 +34,8 @@ export class auth_token
 
         this.http.post(
         'https://accounts.spotify.com/api/token', body, httpOptions
-        ).subscribe(data => function()
-            {
-                console.log(data);
-                //spotify_auth.accessToken;
-            }
+        ).subscribe( res => 
+            console.log(res)
             );
     }
 }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RuntimeAuthCodesService } from '../spotify/runtime-auth-codes.service';
 import { auth_token } from '../spotify/auth_token';
-import { spotify_auth } from '../spotify/spotify_auth';
+import { PullUserDataService } from '../../services/PullUserData/pull-user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-code',
@@ -14,8 +15,10 @@ export class GetCodeComponent implements OnInit {
   constructor(
     private auth: auth_token,
     private runtimeCodes: RuntimeAuthCodesService,
+    private userDataService: PullUserDataService,
+    private router: Router,
     private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe(params => { 
       runtimeCodes.setCodeVerifier(this.getCookie('verifier'));
       runtimeCodes.setPreTokenCode(params['code']);
       });
@@ -23,6 +26,8 @@ export class GetCodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.initToken(this.runtimeCodes.getPreTokenCode(), this.runtimeCodes.getCodeVerifier());
+    
+    this.router.navigate(['/user-portal']);
   }
 
   private getCookie(name: string) 

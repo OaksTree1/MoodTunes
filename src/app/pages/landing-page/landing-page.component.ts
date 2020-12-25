@@ -35,9 +35,8 @@ export class LandingPageComponent implements OnInit {
 
   getFadedColor(colorValue: number) : number
   {
-    var opacityChange = .5;
-    var newColorValue = 255 - opacityChange * (255 - colorValue);
-    return newColorValue;
+    const opacityChange = .5;
+    return (255 - opacityChange * (255 - colorValue));
   }
 }
 
